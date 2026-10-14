@@ -3,7 +3,7 @@ import { inject } from '@angular/core';
 import { Observable } from 'rxjs';
 
 /** Operações REST comuns (GET all, GET by id, POST, PUT, DELETE). */
-export abstract class CrudService<T extends { id?: number }> {
+export abstract class CrudService<T extends { id?: string }> {
   protected readonly http = inject(HttpClient);
 
   protected constructor(private readonly url: string) {}
@@ -12,7 +12,7 @@ export abstract class CrudService<T extends { id?: number }> {
     return this.http.get<T[]>(this.url);
   }
 
-  buscarPorId(id: number): Observable<T> {
+  buscarPorId(id: string): Observable<T> {
     return this.http.get<T>(`${this.url}/${id}`);
   }
 
@@ -20,11 +20,11 @@ export abstract class CrudService<T extends { id?: number }> {
     return this.http.post<T>(this.url, item);
   }
 
-  atualizar(id: number, item: T): Observable<T> {
+  atualizar(id: string, item: T): Observable<T> {
     return this.http.put<T>(`${this.url}/${id}`, item);
   }
 
-  excluir(id: number): Observable<void> {
+  excluir(id: string): Observable<void> {
     return this.http.delete<void>(`${this.url}/${id}`);
   }
 }

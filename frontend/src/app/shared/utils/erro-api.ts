@@ -14,7 +14,7 @@ export function tratarErroApi(err: unknown): ErroApi {
   if (err.status === 0) {
     return {
       mensagem:
-        'Não foi possível conectar à API. Verifique se o back-end (Spring Boot) está rodando em http://localhost:8080.',
+        'Não foi possível conectar à API. Verifique se o back-end (Spring Boot + MongoDB) está rodando em http://localhost:8080.',
       campos: {},
     };
   }

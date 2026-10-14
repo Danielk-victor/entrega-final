@@ -27,7 +27,7 @@ public class JogoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Jogo> buscarPorId(@PathVariable Long id) {
+    public ResponseEntity<Jogo> buscarPorId(@PathVariable String id) {
         return ResponseEntity.ok(jogoService.buscarPorId(id));
     }
 
@@ -38,12 +38,12 @@ public class JogoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Jogo> atualizar(@PathVariable Long id, @Valid @RequestBody Jogo jogo) {
+    public ResponseEntity<Jogo> atualizar(@PathVariable String id, @Valid @RequestBody Jogo jogo) {
         return ResponseEntity.ok(jogoService.atualizar(id, jogo));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar(@PathVariable Long id) {
+    public ResponseEntity<Void> deletar(@PathVariable String id) {
         jogoService.deletar(id);
         return ResponseEntity.noContent().build();
     }

@@ -22,7 +22,7 @@ public class JogoService {
         return jogoRepository.findAll();
     }
 
-    public Jogo buscarPorId(Long id) {
+    public Jogo buscarPorId(String id) {
         return jogoRepository.findById(id)
                 .orElseThrow(() -> new RecursoNaoEncontradoException(
                         "Jogo não encontrado com o id: " + id));
@@ -33,7 +33,7 @@ public class JogoService {
         return jogoRepository.save(jogo);
     }
 
-    public Jogo atualizar(Long id, Jogo jogoAtualizado) {
+    public Jogo atualizar(String id, Jogo jogoAtualizado) {
         Jogo jogoExistente = buscarPorId(id);
 
         jogoExistente.setTitulo(jogoAtualizado.getTitulo());
@@ -46,7 +46,7 @@ public class JogoService {
         return jogoRepository.save(jogoExistente);
     }
 
-    public void deletar(Long id) {
+    public void deletar(String id) {
         Jogo jogo = buscarPorId(id);
         jogoRepository.delete(jogo);
     }

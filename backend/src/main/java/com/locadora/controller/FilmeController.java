@@ -27,7 +27,7 @@ public class FilmeController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Filme> buscarPorId(@PathVariable Long id) {
+    public ResponseEntity<Filme> buscarPorId(@PathVariable String id) {
         return ResponseEntity.ok(filmeService.buscarPorId(id));
     }
 
@@ -38,12 +38,12 @@ public class FilmeController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Filme> atualizar(@PathVariable Long id, @Valid @RequestBody Filme filme) {
+    public ResponseEntity<Filme> atualizar(@PathVariable String id, @Valid @RequestBody Filme filme) {
         return ResponseEntity.ok(filmeService.atualizar(id, filme));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar(@PathVariable Long id) {
+    public ResponseEntity<Void> deletar(@PathVariable String id) {
         filmeService.deletar(id);
         return ResponseEntity.noContent().build();
     }

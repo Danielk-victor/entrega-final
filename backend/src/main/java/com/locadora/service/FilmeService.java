@@ -22,7 +22,7 @@ public class FilmeService {
         return filmeRepository.findAll();
     }
 
-    public Filme buscarPorId(Long id) {
+    public Filme buscarPorId(String id) {
         return filmeRepository.findById(id)
                 .orElseThrow(() -> new RecursoNaoEncontradoException(
                         "Filme não encontrado com o id: " + id));
@@ -33,7 +33,7 @@ public class FilmeService {
         return filmeRepository.save(filme);
     }
 
-    public Filme atualizar(Long id, Filme filmeAtualizado) {
+    public Filme atualizar(String id, Filme filmeAtualizado) {
         Filme filmeExistente = buscarPorId(id);
 
         filmeExistente.setTitulo(filmeAtualizado.getTitulo());
@@ -46,7 +46,7 @@ public class FilmeService {
         return filmeRepository.save(filmeExistente);
     }
 
-    public void deletar(Long id) {
+    public void deletar(String id) {
         Filme filme = buscarPorId(id);
         filmeRepository.delete(filme);
     }

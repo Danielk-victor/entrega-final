@@ -17,7 +17,7 @@ export class JogoFormComponent implements OnInit {
   private readonly router = inject(Router);
   private readonly route = inject(ActivatedRoute);
 
-  id: number | null = null;
+  id: string | null = null;
   carregando = signal(false);
   salvando = signal(false);
   erro = signal<string | null>(null);
@@ -43,7 +43,7 @@ export class JogoFormComponent implements OnInit {
   ngOnInit(): void {
     const param = this.route.snapshot.paramMap.get('id');
     if (!param) return;
-    this.id = Number(param);
+    this.id = param;
     this.carregando.set(true);
     this.service.buscarPorId(this.id).subscribe({
       next: (item) => {

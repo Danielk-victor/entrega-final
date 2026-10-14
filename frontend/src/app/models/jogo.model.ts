@@ -1,5 +1,5 @@
 export interface Jogo {
-  id?: number;
+  id?: string;
   titulo: string;
   genero: string;
   plataforma: string;
