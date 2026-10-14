@@ -34,6 +34,7 @@ export class JogoFormComponent implements OnInit {
     ]),
     valorLocacao: new FormControl<number | null>(null, [Validators.required, Validators.min(0.01)]),
     disponivel: new FormControl(true, { nonNullable: true }),
+    multiplayer: new FormControl(false, { nonNullable: true }),
   });
 
   get editando(): boolean {

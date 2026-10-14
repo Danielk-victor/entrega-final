@@ -42,6 +42,7 @@ public class JogoService {
         jogoExistente.setAnoLancamento(jogoAtualizado.getAnoLancamento());
         jogoExistente.setValorLocacao(jogoAtualizado.getValorLocacao());
         jogoExistente.setDisponivel(jogoAtualizado.getDisponivel());
+        jogoExistente.setMultiplayer(jogoAtualizado.getMultiplayer());
 
         return jogoRepository.save(jogoExistente);
     }

@@ -6,4 +6,5 @@ export interface Jogo {
   anoLancamento: number;
   valorLocacao: number;
   disponivel: boolean;
+  multiplayer?: boolean;
 }

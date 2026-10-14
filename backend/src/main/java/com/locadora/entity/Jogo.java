@@ -36,4 +36,7 @@ public class Jogo {
 
     @NotNull(message = "É necessário informar se o jogo está disponível")
     private Boolean disponivel;
+
+    /** Opcional: nem todo documento da colecao possui este campo. */
+    private Boolean multiplayer;
 }

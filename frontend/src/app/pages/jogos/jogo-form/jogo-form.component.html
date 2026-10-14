@@ -49,6 +49,11 @@
       <span>Disponível para locação</span>
     </label>
 
+    <label class="check campo-full">
+      <input type="checkbox" formControlName="multiplayer" />
+      <span>Multiplayer</span>
+    </label>
+
     <div class="acoes campo-full">
       <a routerLink="/jogos" class="btn">Cancelar</a>
       <button type="submit" class="btn btn-primario" [disabled]="salvando()">
